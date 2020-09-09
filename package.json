@@ -8,6 +8,7 @@
   "scripts": {
     "build:backend": "lerna run build --stream --ignore @mernauth/client",
     "build:watch": "lerna exec --stream --scope=@mernauth/server -- yarn watch",
+    "dev:backend": "lerna exec --stream --scope=@mernauth/server -- yarn dev",
     "start:backend": "lerna exec --stream --scope=@mernauth/server -- yarn start",
     "dev:dashboard": "lerna exec --stream --scope=@mernauth/client -- yarn dev",
     "start:dashboard": "lerna exec --stream --scope=@merauth/client -- yarn start",

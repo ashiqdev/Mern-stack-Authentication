@@ -6,10 +6,24 @@
   "scripts": {
     "build": "rm -rf dist && webpack --mode development",
     "watch": "yarn build --watch",
-    "start": "nodemon -e js -x node --inspect dist/server.js --watch=dist"
+    "dev": "nodemon -e js -x node --inspect dist/server.js --watch=dist",
+    "start": "NODE_ENV=production node -e js -x node --inspect dist/server.js --watch=dist"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@sendgrid/mail": "^7.2.5",
+    "axios": "^0.20.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "express-validator": "^6.6.1",
+    "google-auth-library": "^6.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.3",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.11"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",

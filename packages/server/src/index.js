@@ -1,10 +1,28 @@
-import express from "express";
+import mongoose from 'mongoose';
 
-const app = express();
-const port = 3000;
+// Import all of our models
+// require('./models/User');
+import './models/User';
 
-app.get("/", (req, res) => res.send("Hello World"));
+// start our app
+import app from './app';
 
-app.listen(port, () => {
-  console.log(`Example app is listening on port ${port}`);
+// Connect to our Database and handle any bad connections
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true,
+});
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', (err) => {
+  console.error(`EROR → ${err.message}`);
+});
+
+const port = process.env.API_PORT || 3000;
+
+app.set('port', port);
+
+const server = app.listen(app.get('port'), () => {
+  console.log(`Express running → PORT ${server.address().port}`);
 });

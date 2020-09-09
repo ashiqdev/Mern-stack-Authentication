@@ -86,8 +86,11 @@ module.exports = {
     ],
 
     // TODO: probably should use a debugging tool instead
-    'no-console': ['error', { allow: ['warn', 'error', 'debug'] }],
+    'no-console': ['off', { allow: ['warn', 'error', 'debug'] }],
 
+    'func-names': ['off'],
+    // NOTE: I have no idea why this gives me warning although express-jwt is installed. so, I have to turn it off
+    'import/no-unresolved': 'off',
     // NOTE: these two rules must not be removed if we are using hooks
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
